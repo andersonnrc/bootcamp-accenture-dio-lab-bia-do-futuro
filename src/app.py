@@ -44,16 +44,27 @@ def load_financial_context():
         with open("data/produtos_financeiros.json", "r", encoding="utf-8") as f:
             produtos = json.load(f)
 
-        # Exemplo de processamento Pandas: agrupamento de gastos
-        # df_transacoes['valor'] = pd.to_numeric(df_transacoes['valor'])
-        # gastos_por_categoria = df_transacoes.groupby('categoria')['valor'].sum().to_dict()
+        # ETAPA DE TRANSFORMAÇÃO (Transform)
+        # ---------------------------------------------------------
+        
+        # 1. Garante que a coluna valor é matemática (número) e não texto
+        df_transacoes['valor'] = pd.to_numeric(df_transacoes['valor'])
+
+        # 2. Agrupa os gastos por categoria e soma tudo
+        gastos_por_categoria = df_transacoes.groupby('categoria')['valor'].sum().to_dict()
+
+        # 3. [A PONTE] Transforma esse cálculo em um texto bonitinho para a IA conseguir ler
+        # Vai gerar algo como: "- Alimentação: R$ 500.00"
+        texto_gastos = "\n".join([f"- {categoria}: R$ {valor:.2f}" for categoria, valor in gastos_por_categoria.items()])
         
         # Para este protótipo, vamos montar o texto consolidado
         contexto = f"""
         [CONTEXTO FINANCEIRO DO USUÁRIO]
         - Nome: Anderson
         - Perfil de Risco: {perfil.get('perfil', 'Moderado')}
-        - Capacidade de Poupança Atual: R$ 850,00/mês
+        
+        [RESUMO DE GASTOS (DADOS REAIS DO CSV)]
+        {texto_gastos}
         
         [CATÁLOGO DE PRODUTOS PERMITIDOS]
         {json.dumps(produtos, indent=2, ensure_ascii=False)}
