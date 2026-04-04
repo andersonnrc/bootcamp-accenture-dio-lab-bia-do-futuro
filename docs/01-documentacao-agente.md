@@ -75,7 +75,7 @@ flowchart TD
    
 - C[Orquestrador Python]: Este é o "maestro" da aplicação. Em vez da mensagem do usuário ir diretamente para a IA, ela é interceptada pelo seu script Python. O orquestrador avalia a intenção, identifica quais dados precisam ser acessados e coordena o tráfego de informações. A vantagem de possuir essa camada robusta no backend é a facilidade de, no futuro, empacotar toda a aplicação em containers Docker, garantindo que ela rode de forma estável e padronizada em ambientes Linux durante o seu processo de deploy.
 
-4. O Motor Matemático: Processamento de Dados
+3. O Motor Matemático: Processamento de Dados
 
 Aqui é onde evitamos que a IA cometa erros em cálculos financeiros.
 
