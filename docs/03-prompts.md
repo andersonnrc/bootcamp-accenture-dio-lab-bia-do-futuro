@@ -114,5 +114,4 @@ Para sugerir a melhor alocação para o seu bônus, preciso cruzar esse valor co
 
 > Registre aqui ajustes que você fez nos prompts e por quê.
 
-- [Observação 1]
-- [Observação 2]
+- O ajuste principal foi proibir o LLM de fazer contas no System Prompt, exigindo que ele apenas leia as métricas processadas previamente pelo Pandas.
