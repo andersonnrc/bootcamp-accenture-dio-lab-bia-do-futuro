@@ -1,149 +1,61 @@
-# 🤖 Agente Financeiro Inteligente com IA Generativa
+# 🎓 MetaFlow - Seu GPS Financeiro Inteligente
 
-## Contexto
+> Agente de IA Generativa focado em planejamento de metas e educação financeira. Ele atua como um verdadeiro "GPS Financeiro", calculando rotas para os seus objetivos e ensinando conceitos de finanças de forma simples e personalizada, extraindo e processando dados reais do seu histórico em banco de dados.
 
-Os assistentes virtuais no setor financeiro estão evoluindo de simples chatbots reativos para **agentes inteligentes e proativos**. Neste desafio, você vai idealizar e prototipar um agente financeiro que utiliza IA Generativa para:
+## 💡 O Que é o MetaFlow?
 
-- **Antecipar necessidades** ao invés de apenas responder perguntas
-- **Personalizar** sugestões com base no contexto de cada cliente
-- **Cocriar soluções** financeiras de forma consultiva
-- **Garantir segurança** e confiabilidade nas respostas (anti-alucinação)
+O MetaFlow vai além de um simples chatbot: ele é um agente de análise financeira construído sobre um pipeline robusto de dados. Em vez de apenas responder perguntas genéricas, ele olha para a sua realidade financeira e ajuda a pavimentar o caminho até os seus objetivos.
 
-> [!TIP]
-> Na pasta [`examples/`](./examples/) você encontra referências de implementação para cada etapa deste desafio.
+**O que o MetaFlow faz:**
+- 📍 **Traça Rotas para Metas:** Ajuda a planejar objetivos financeiros (ex: reserva de emergência, viagem, aposentadoria) e calcula o esforço necessário com base na sua realidade.
+- 🔄 **Recalcula a Rota:** Processa e analisa padrões de gastos consultando diretamente o banco de dados SQL para avisar se você está saindo do caminho do seu planejamento.
+- 🚗 **Explica o "Veículo" Certo:** Em vez de recomendar investimentos, ele explica como diferentes produtos financeiros funcionam e como eles se encaixam no horizonte de tempo da sua meta (ex: por que liquidez importa para uma reserva de emergência).
+- 🧠 **Garante Contexto Atualizado:** Mantém a IA informada através de pipelines de dados eficientes (ETL com Pandas e SQL).
 
----
+**O que o MetaFlow NÃO faz:**
+- ❌ Não recomenda ativos ou investimentos específicos (foco 100% educativo e de planejamento).
+- ❌ Não realiza transações ou movimentações na conta do cliente.
+- ❌ Não substitui um consultor financeiro certificado.
 
-## O Que Você Deve Entregar
+## 🏗️ Arquitetura do Sistema
 
-### 1. Documentação do Agente
-
-Defina **o que** seu agente faz e **como** ele funciona:
-
-- **Caso de Uso:** Qual problema financeiro ele resolve? (ex: consultoria de investimentos, planejamento de metas, alertas de gastos)
-- **Persona e Tom de Voz:** Como o agente se comporta e se comunica?
-- **Arquitetura:** Fluxo de dados e integração com a base de conhecimento
-- **Segurança:** Como evitar alucinações e garantir respostas confiáveis?
-
-📄 **Template:** [`docs/01-documentacao-agente.md`](./docs/01-documentacao-agente.md)
-
----
-
-### 2. Base de Conhecimento
-
-Utilize os **dados mockados** disponíveis na pasta [`data/`](./data/) para alimentar seu agente:
-
-| Arquivo | Formato | Descrição |
-|---------|---------|-----------|
-| `transacoes.csv` | CSV | Histórico de transações do cliente |
-| `historico_atendimento.csv` | CSV | Histórico de atendimentos anteriores |
-| `perfil_investidor.json` | JSON | Perfil e preferências do cliente |
-| `produtos_financeiros.json` | JSON | Produtos e serviços disponíveis |
-
-Você pode adaptar ou expandir esses dados conforme seu caso de uso.
-
-📄 **Template:** [`docs/02-base-conhecimento.md`](./docs/02-base-conhecimento.md)
-
----
-
-### 3. Prompts do Agente
-
-Documente os prompts que definem o comportamento do seu agente:
-
-- **System Prompt:** Instruções gerais de comportamento e restrições
-- **Exemplos de Interação:** Cenários de uso com entrada e saída esperada
-- **Tratamento de Edge Cases:** Como o agente lida com situações limite
-
-📄 **Template:** [`docs/03-prompts.md`](./docs/03-prompts.md)
-
----
-
-### 4. Aplicação Funcional
-
-Desenvolva um **protótipo funcional** do seu agente:
-
-- Chatbot interativo (sugestão: Streamlit, Gradio ou similar)
-- Integração com LLM (via API ou modelo local)
-- Conexão com a base de conhecimento
-
-📁 **Pasta:** [`src/`](./src/)
-
----
-
-### 5. Avaliação e Métricas
-
-Descreva como você avalia a qualidade do seu agente:
-
-**Métricas Sugeridas:**
-- Precisão/assertividade das respostas
-- Taxa de respostas seguras (sem alucinações)
-- Coerência com o perfil do cliente
-
-📄 **Template:** [`docs/04-metricas.md`](./docs/04-metricas.md)
-
----
-
-### 6. Pitch
-
-Grave um **pitch de 3 minutos** (estilo elevador) apresentando:
-
-- Qual problema seu agente resolve?
-- Como ele funciona na prática?
-- Por que essa solução é inovadora?
-
-📄 **Template:** [`docs/05-pitch.md`](./docs/05-pitch.md)
-
----
-
-## Ferramentas Sugeridas
-
-Todas as ferramentas abaixo possuem versões gratuitas:
-
-| Categoria | Ferramentas |
-|-----------|-------------|
-| **LLMs** | [ChatGPT](https://chat.openai.com/), [Copilot](https://copilot.microsoft.com/), [Gemini](https://gemini.google.com/), [Claude](https://claude.ai/), [Ollama](https://ollama.ai/) |
-| **Desenvolvimento** | [Streamlit](https://streamlit.io/), [Gradio](https://www.gradio.app/), [Google Colab](https://colab.research.google.com/) |
-| **Orquestração** | [LangChain](https://www.langchain.com/), [LangFlow](https://www.langflow.org/), [CrewAI](https://www.crewai.com/) |
-| **Diagramas** | [Mermaid](https://mermaid.js.org/), [Draw.io](https://app.diagrams.net/), [Excalidraw](https://excalidraw.com/) |
-
----
-
-## Estrutura do Repositório
-
-```
-📁 lab-agente-financeiro/
-│
-├── 📄 README.md
-│
-├── 📁 data/                          # Dados mockados para o agente
-│   ├── historico_atendimento.csv     # Histórico de atendimentos (CSV)
-│   ├── perfil_investidor.json        # Perfil do cliente (JSON)
-│   ├── produtos_financeiros.json     # Produtos disponíveis (JSON)
-│   └── transacoes.csv                # Histórico de transações (CSV)
-│
-├── 📁 docs/                          # Documentação do projeto
-│   ├── 01-documentacao-agente.md     # Caso de uso e arquitetura
-│   ├── 02-base-conhecimento.md       # Estratégia de dados
-│   ├── 03-prompts.md                 # Engenharia de prompts
-│   ├── 04-metricas.md                # Avaliação e métricas
-│   └── 05-pitch.md                   # Roteiro do pitch
-│
-├── 📁 src/                           # Código da aplicação
-│   └── app.py                        # (exemplo de estrutura)
-│
-├── 📁 assets/                        # Imagens e diagramas
-│   └── ...
-│
-└── 📁 examples/                      # Referências e exemplos
-    └── README.md
+```mermaid
+flowchart TD
+    A[Cliente] -->|Mensagem e Metas| B[Interface do Usuário]
+    B --> C[Orquestrador Python / Backend]
+    
+    subgraph Processamento de Dados
+    C -->|Consultas e Cálculos Pandas| D[(Base de Conhecimento: CSV/JSON)]
+    D -->|Métricas Consolidadas e Agrupadas| C
+    end
+    
+    subgraph Inteligência Artificial
+    C -->|Prompt do Sistema + Contexto Matemático| E[LLM]
+    E -->|Resposta em Linguagem Natural| C
+    end
+    
+    C --> F[Validação de Segurança e Formatação]
+    F -->|Resposta Final| B
 ```
 
----
+📁 Estrutura do Projeto
 
-## Dicas Finais
-
-1. **Comece pelo prompt:** Um bom system prompt é a base de um agente eficaz
-2. **Use os dados mockados:** Eles garantem consistência e evitam problemas com dados sensíveis
-3. **Foque na segurança:** No setor financeiro, evitar alucinações é crítico
-4. **Teste cenários reais:** Simule perguntas que um cliente faria de verdade
-5. **Seja direto no pitch:** 3 minutos passam rápido, vá ao ponto
+```
+├── data/                          # Bases estáticas de fallback e dicionários
+│   ├── perfil_investidor.json     # Perfil do cliente
+│   ├── transacoes.csv             # Histórico financeiro
+│   ├── historico_atendimento.csv  # Interações anteriores
+│   └── produtos_financeiros.json  # Produtos para ensino
+│
+├── docs/                          # Documentação completa
+│   ├── 01-arquitetura-agente.md   # Desenho da solução (Fluxo MetaFlow)
+│   ├── 02-engenharia-dados.md     # Modelagem SQL e fluxos de carga
+│   ├── 03-prompts.md              # System prompts e regras anti-alucinação
+│   └── 04-metricas.md             # Avaliação de qualidade
+│   └── 05-pitch.md                # Apresentação do projeto
+│
+├── src/
+│   ├── app.py                     # Ponto de entrada da aplicação Streamlit
+│
+└── requirements.txt               # Dependências do projeto
+```
