@@ -51,7 +51,7 @@ flowchart TD
 │   ├── 01-arquitetura-agente.md   # Desenho da solução (Fluxo MetaFlow)
 │   ├── 02-engenharia-dados.md     # Modelagem SQL e fluxos de carga
 │   ├── 03-prompts.md              # System prompts e regras anti-alucinação
-│   └── 04-metricas.md             # Avaliação de qualidade
+│   ├── 04-metricas.md             # Avaliação de qualidade
 │   └── 05-pitch.md                # Apresentação do projeto
 │
 ├── src/
